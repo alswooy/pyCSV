@@ -8,18 +8,20 @@
           }
         </py-config>
         
-  <py-env>
-      - pandas
-  </py-env>
         
-      </head>
+        
+    </head>
 <body>
+    <py-env>
+        - pandas
+        
+    </py-env>
         <h1>그래프 출력</h1>
-        <div> </div>
         <py-script>
             import matplotlib.pyplot as plt
-            import csv
-            f=open("C:\\Users\\82105\\Desktop\\pyCSV\\test.csv",encoding='utf-8')
+            import csv  
+            
+            f=open('.\\pyCSV\\test.csv',"r",encoding='utf-8')
             data=csv.reader(f)
             next(data)
             result=[]
