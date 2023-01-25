@@ -1,8 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+      <meta charset="UTF-8">
         <title>그래프</title>
         <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        
         <py-config type="json">
           {
             "packages": ["matplotlib"]
@@ -12,19 +15,14 @@
         
         
     </head>
-    <body>
-        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-                            
+    <body>                 
         <py-env>
-            -matplotlib
-            -pandas
-            -numpy
-            -csv
+          - paths:
+            -C:\\Users\\82105\\Desktop\\pyCSV\\onlygraph.py
 
         </py-env>
 
-        <py-script scr="./text.py">
+        <py-script scr="C:\\Users\\82105\\Desktop\\pyCSV\\onlygraph.py">
 
         </py-script>
     </body>

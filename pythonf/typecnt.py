@@ -14,7 +14,7 @@ import numpy as np
 
 
 import csv
-f=open('test.csv',encoding='utf-8')
+f=open('C:\\Users\\82105\\Desktop\\pyCSV\\csv\\test.csv',encoding='utf-8')
 data=csv.reader(f)
 next(data)
 result=[]

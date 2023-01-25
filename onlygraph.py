@@ -1,9 +1,15 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[6]:
+
+
 
 import matplotlib.pyplot as plt
 import csv
 f=open('C:\\Users\\82105\\Desktop\\pyCSV\\csv\\test.csv',encoding='utf-8')
 data=csv.reader(f)
-next(data)
+
 result=[]
 result2=[]
 cnt00b=0
@@ -558,6 +564,8 @@ plt.bar(maliciousx,malicious,color='g',width=1,label="MALICIOUS")
 plt.bar(suspiciousx,suspicious,color='y',width=1,label="SUSPICIOUS")
 plt.bar(errorx,error,color='red',width=1,label="ERROR")
 plt.bar(totalx,total,color='black',width=1,label="TOTAL")
-
+plt.xlabel('Time')
+plt.ylabel('Data')
 plt.legend(loc=0)
 plt.xticks(benignx,ticklabel,fontsize=10,rotation=0)
+
