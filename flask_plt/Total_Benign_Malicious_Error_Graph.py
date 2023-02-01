@@ -576,6 +576,7 @@ def instart():
     plt.xlabel('Time')
     plt.ylabel('Data')
     plt.legend(loc=0)
+    plt.title(root.filename)
     plt.xticks(benignx,ticklabel,fontsize=10,rotation=0)
 
     plt.show()
