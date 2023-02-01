@@ -4,12 +4,19 @@ from tkinter import filedialog
 from io import BytesIO
 import matplotlib.pyplot as plt
 import csv
+
 root = Tk()
+
 root.title('file select')
- 
+label1 = Label(root,text = "CSV파일을 넣어주세요.")
+label2 = Label(root,text = "시간 당 [Total / BENIGN / MALICIOUS / ERROR] 개수")
+label1.pack()
+label2.pack()
 def instart():
     global my_image # 함수에서 이미지를 기억하도록 전역변수 선언 (안하면 사진이 안보임)
-    root.filename = filedialog.askopenfilename(initialdir='', title='파일선택', filetypes=(
+    
+    
+    root.filename = filedialog.askopenfilename(initialdir='', title='파일선택',filetypes=(
     ('csv files', '*.csv'), ('all files', '*.*')))
  
     Label(root, text=root.filename).pack() # 파일경로 view
