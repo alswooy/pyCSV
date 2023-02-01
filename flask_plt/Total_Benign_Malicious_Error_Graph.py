@@ -9,7 +9,7 @@ root.title('file select')
  
 def instart():
     global my_image # 함수에서 이미지를 기억하도록 전역변수 선언 (안하면 사진이 안보임)
-    root.filename = filedialog.askopenfilename(initialdir='C:\\Users\\82105\\Desktop\\pyCSV\\csv', title='파일선택', filetypes=(
+    root.filename = filedialog.askopenfilename(initialdir='', title='파일선택', filetypes=(
     ('csv files', '*.csv'), ('all files', '*.*')))
  
     Label(root, text=root.filename).pack() # 파일경로 view
