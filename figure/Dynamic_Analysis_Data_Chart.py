@@ -20,7 +20,7 @@ def instart():
     ('csv files', '*.csv'), ('all files', '*.*')))
  
     Label(root, text=root.filename).pack() # 파일경로 view
-    print("경로: "+root.filename)
+    # print("경로: "+root.filename)
 
     
     f=open(root.filename,encoding='utf-8')
@@ -787,7 +787,7 @@ def instart():
     plt.xlabel('Time')
     plt.ylabel('Data')
     plt.legend(loc=0)
-    plt.title(root.filename)
+    plt.title("경로 : " + root.filename)
     plt.xticks(docx,ticklabel,fontsize=10,rotation=0)
 
     plt.show()
@@ -795,8 +795,8 @@ def instart():
     plt.savefig(img, format='png', dpi=200)
     img.seek(0)
 
-    # my_image = ImageTk.PhotoImage(Image.open(root.filename)) ## 밑에 사진 뜨는거
-    Label(img).pack() #사진 view
+    my_image = ImageTk.PhotoImage(Image.open(root.filename)) ## 밑에 사진 뜨는거
+    img.pack() #사진 view
  
  
 my_btn = Button(root, text='파일열기', command=instart).pack()
