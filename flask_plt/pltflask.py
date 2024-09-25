@@ -5,11 +5,13 @@ from flask import Flask, send_file, make_response ,render_template, request, red
 from io import BytesIO
 import os
 from werkzeug.utils import secure_filename
+import numpy as np
 
 ## remove cache 
 from functools import wraps, update_wrapper
 from datetime import datetime
 matplotlib.use('Agg') 
+
 def nocache(view):
   @wraps(view)
   def no_cache(*args, **kwargs):
@@ -21,6 +23,7 @@ def nocache(view):
     return response      
   return update_wrapper(no_cache, view)
 app = Flask(__name__)
+
 
 def file():
     filename = f"/Users/alswooy/Downloads/test.csv"
@@ -62,12 +65,13 @@ def file():
         total = [total_counts[hour] for hour in range(24)]
     print(benign, malicious, suspicious, error, total)
     return benign, malicious, suspicious, error, total
-######################################
+
+
 @app.route("/", methods=["GET"])
 @nocache
 def index():
     benign, malicious, suspicious, error, total = file()
-
+    
     benignx = list(range(1, 25))
     maliciousx = list(range(1, 25))
     suspiciousx = list(range(1, 25))
@@ -79,11 +83,16 @@ def index():
     ticklabel=['00','01','02','03','04','05','06','07','08','09',
                 '10','11','12','13','14','15','16','17','18','19',
                 '20','21','22','23']
-    plt.bar(benignx,benign,color='skyblue',width=1,label="BENIGN")
-    plt.bar(maliciousx,malicious,color='g',width=1,label="MALICIOUS")
-    plt.bar(suspiciousx,suspicious,color='y',width=1,label="SUSPICIOUS")
-    plt.bar(errorx,error,color='red',width=1,label="ERROR")
-    plt.bar(totalx,total,color='black',width=1,label="TOTAL")
+    x = np.arange(24)  # 0부터 23까지의 값을 생성
+    width = 0.15  # 막대 폭 설정
+
+    # 그래프 그리기
+    plt.bar(x - 2*width, benign, color='skyblue', width=width, label="BENIGN")
+    plt.bar(x - width, malicious, color='g', width=width, label="MALICIOUS")
+    plt.bar(x, suspicious, color='y', width=width, label="SUSPICIOUS")
+    plt.bar(x + width, error, color='red', width=width, label="ERROR")
+    plt.bar(x + 2*width, total, color='black', width=width, label="TOTAL")
+
     plt.title("Total_Benign_Malicious_Error_Chart")
     plt.xlabel('Time')
     plt.ylabel('Data')
