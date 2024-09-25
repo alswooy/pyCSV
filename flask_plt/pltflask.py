@@ -94,10 +94,15 @@ def index():
     plt.bar(x + 2*width, total, color='black', width=width, label="TOTAL")
 
     plt.title("Total_Benign_Malicious_Error_Chart")
-    plt.xlabel('Time')
+    plt.xlabel('Time (Hour)')
     plt.ylabel('Data')
-    plt.legend(loc=0)
-    plt.xticks(benignx,ticklabel,fontsize=10,rotation=0)
+    plt.legend(loc='best')
+
+    # x축 시간 정보 중앙에 배치
+    plt.xticks(ticks=x, labels=[f"{hour:02}" for hour in range(24)], fontsize=10)
+    plt.gca().set_xticks(x)  # x축의 위치 설정
+    plt.gca().set_xticklabels([f"{hour:02}" for hour in range(24)], rotation=0)  # 시간 형식 설정
+
     
     # Save the plot to a BytesIO object
     img = BytesIO()
