@@ -131,3 +131,4 @@ dmypy.json
 uploads
 csv
 *.csv
+.DS_Store
